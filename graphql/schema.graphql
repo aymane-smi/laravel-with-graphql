@@ -1,0 +1,19 @@
+scalar DateTime
+    @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+type Todo {
+    id: ID!
+    title: String!
+    done: Boolean
+    created_at: DateTime!
+}
+
+type Query {
+    getTodo: [Todo] @all
+    getTodoById(id: ID!): Todo! @find
+}
+type Mutation {
+    createTodo(title: String!): Todo! @create
+    updateTodoStatus(id: ID!, done: Boolean!): Todo! @update
+    updateTodoTitle(id: ID!, title: String!): Todo! @update
+    deleteTodo(id: ID! @whereKey): Todo @delete
+}
