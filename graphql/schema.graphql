@@ -9,7 +9,9 @@ type Todo {
 
 type Query {
     getTodo: [Todo] @all
-    getTodoById(id: ID!): Todo! @find
+    getTodoById(id: ID!): Todo @find
+    getTodoResolver: [Todo]
+    getTodoByIdResolver(id: ID!): Todo
 }
 type Mutation {
     createTodo(title: String!): Todo! @create
